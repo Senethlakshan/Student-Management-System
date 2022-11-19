@@ -4,11 +4,11 @@ import studentService from '../service/studentService';
 
 const updateStudent = () => {
 
-    const [studentId, setbookID] = useState('')
-    const [studentName, setbookName] = useState('')
-    const [address, setbookAuthor] = useState('')
-    const [dob, setprice] = useState('')
-    const [teleNumber, setquntity] = useState('')
+    const [studentId, setstudentId] = useState('')
+    const [studentName, setstudentName] = useState('')
+    const [address, setaddress] = useState('')
+    const [dob, setdob] = useState('')
+    const [teleNumber, setteleNumber] = useState('')
     const history = useHistory();
     const {id} = useParams();
   
@@ -49,13 +49,13 @@ const updateStudent = () => {
 
     useEffect(() => {
 
-        EmployeeService.getEmployeeById(id).then((response) =>{
-            setbookID(response.data.book_id)
-            setbookName(response.data.book_name)
-            setbookAuthor(response.data.book_author)
-            setprice(response.data.price)
-            setquntity(response.data.quntity)
-            setdescription(response.data.description)
+        studentService.getStudentById(id).then((response) =>{
+            setstudentId(response.data.studentId)
+            setstudentName(response.data.studentName)
+            setaddress(response.data.address)
+            setdob(response.data.dob)
+            setteleNumber(response.data.teleNumber)
+           
 
         }).catch(error => {
             console.log(error)
@@ -91,7 +91,7 @@ const updateStudent = () => {
                                         placeholder = "Enter first name"
                                         name = "firstName"
                                         className = "form-control"
-                                        value = {book_id}
+                                        value = {studentId}
                                         onChange = {(e) => setbookID(e.target.value)}
                                     >
                                     </input>
@@ -104,67 +104,53 @@ const updateStudent = () => {
                                         placeholder = "Enter last name"
                                         name = "book Name "
                                         className = "form-control"
-                                        value = {book_name}
+                                        value = {studentName}
                                         onChange = {(e) => setbookName(e.target.value)}
                                     >
                                     </input>
                                 </div>
 
                                 <div className = "form-group mb-2">
-                                    <label className = "form-label"> Book author :</label>
+                                    <label className = "form-label"> Address :</label>
                                     <input
                                         type = "email"
                                         placeholder = "Enter email Id"
                                         name = "book author "
                                         className = "form-control"
-                                        value = {book_author}
+                                        value = {address}
                                         onChange = {(e) => setbookAuthor(e.target.value)}
                                     >
                                     </input>
                                 </div>
 
                                 <div className = "form-group mb-2">
-                                    <label className = "form-label"> price :</label>
+                                    <label className = "form-label"> Date of birth :</label>
                                     <input
                                         type = "text"
                                         placeholder = "Enter first name"
                                         name = "price"
                                         className = "form-control"
-                                        value = {price}
+                                        value = {dob}
                                         onChange = {(e) => setprice(e.target.value)}
                                     >
                                     </input>
                                 </div>
 
                                 <div className = "form-group mb-2">
-                                    <label className = "form-label"> Quntity :</label>
+                                    <label className = "form-label"> Telephone :</label>
                                     <input
                                         type = "text"
                                         placeholder = "Enter first name"
                                         name = "quntity"
                                         className = "form-control"
-                                        value = {quntity}
+                                        value = {teleNumber}
                                         onChange = {(e) => setquntity(e.target.value)}
                                     >
                                     </input>
                                 </div>
 
-                                <div className = "form-group mb-2">
-                                    <label className = "form-label"> Description :</label>
-                                    <input
-                                        type = "text"
-                                        placeholder = "Enter quntity"
-                                        name = "description"
-                                        className = "form-control"
-                                        value = {description}
-                                        onChange = {(e) => setdescription(e.target.value)}
-                                    >
-                                    </input>
-                                </div>
-
-
-                                <button className = "btn btn-success" onClick = {(e) => saveEmployee(e)} >Submit </button>
-                                <Link to="/employees" className="btn btn-danger"> Cancel </Link>
+                                <button className = "btn btn-success" onClick = {(e) => addStudent(e)} >Submit </button>
+                               
                             </form>
 
                         </div>

@@ -10,18 +10,24 @@ class studentService{
         return axios.get(`${REST_API_URL}/allStudent`);
     }
 
-    // addStudent(employee){
+    // addStudent(student){
       
-    //     return axios.post(REST_API_URL,employee);
+    //     return axios.post(REST_API_URL,student);
     // }
 
-    // updateStudent(employeeId, employee){
-    //     return axios.put(REST_API_URL + '/' +employeeId, employee);
+    // updateStudent(studentId, student){
+    //     return axios.put(REST_API_URL + '/' +studentId, student);
     // }
 
     deleteStudent(studentId){
         return axios.delete(REST_API_URL + '/delete/' + studentId);
     }
+
+    
+    // getStudentById(studentId){
+    //     return axios.get(REST_API_URL + '/' + studentId);
+      
+    // }
 
 }
 
